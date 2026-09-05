@@ -2,7 +2,7 @@
 
 **Building an infrastructure stack and a platform for deploying complete applications.**
 
-kgxlabs is the home of kgx, an infrastructure platform under development. The goal is to let developers deploy and operate complete applications, including frontends, backend services, databases, and caches, through one integrated platform.
+kgxlabs is the home of [kgx](https://github.com/kgxlabs), an infrastructure platform under development. The goal is to let developers deploy and operate complete applications, including frontends, backend services, databases, and caches, through one integrated platform.
 
 We are building the underlying infrastructure components alongside the systems that provision compute, run workloads, connect services, and manage deployments. Each component has a focused responsibility within the larger stack, with standalone use where practical.
 
@@ -18,15 +18,16 @@ The initial direction spans the following areas. These describe the intended arc
 
 | Area | Intended responsibility |
 | --- | --- |
-| HTTP | Serve and route application traffic |
+| HTTP | Serve and route application traffic through [kghttp](https://github.com/kgxlabs/kghttp) |
 | Database | Store and retrieve durable application data |
-| Cache | Provide in-memory caching through kgcache |
+| Cache | Provide in-memory caching through [kgcache](https://github.com/kgxlabs/kgcache) |
 | Container runtime | Execute and isolate application workloads |
 | Deployment orchestration | Provision resources and coordinate application releases and service lifecycles |
 | Supporting systems | Provide networking, persistent storage, configuration, secrets, identity, and observability as the platform requires |
 
 ### Projects
 
+- [kghttp](https://github.com/kgxlabs/kghttp): an HTTP layer written in Go, providing an HTTP/1.1 client and server, request and response parsing, and transfer handling. It is being developed as the HTTP foundation of kgx.
 - [kgcache](https://github.com/kgxlabs/kgcache): an in-memory cache server written in Zig, evolving toward a drop-in Redis replacement and the cache layer of kgx. It currently implements a subset of Redis functionality and is not yet a drop-in replacement.
 
 ## Three-year roadmap
@@ -43,4 +44,9 @@ This organization README owns the platform vision and roadmap. Component reposit
 
 ## Current status
 
-kgx is an early-stage development effort. The integrated platform described here is the destination being built toward. Follow the linked project repositories for implemented capabilities and ongoing work.
+[kgx](https://github.com/kgxlabs) is an early-stage development effort. The integrated platform described here is the destination being built toward. Follow the linked project repositories for implemented capabilities and ongoing work.
+
+- [kghttp](https://github.com/kgxlabs/kghttp): implements an HTTP/1.1 client and server in Go, including request and response parsing, chunked transfer handling, and trailers.
+- [kgcache](https://github.com/kgxlabs/kgcache): implements a subset of Redis functionality over RESP2 in Zig, including string storage, expiration, snapshots, and append-only persistence. It is not yet a drop-in Redis replacement.
+
+Both components are under active development. See their repositories for supported behavior, usage, and known limitations.
